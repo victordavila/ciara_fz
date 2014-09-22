@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+        
+    <record model="ir.ui.view" id="view_acciones_especificas_form">
+        <field name="name">acciones_especificas.form</field>
+        <field name="model">acciones_especificas</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="acciones_especificas">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_acciones_especificas_tree">
+        <field name="name">acciones_especificas.tree</field>
+        <field name="model">acciones_especificas</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="acciones_especificas">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_acciones_especificas">
+        <field name="name">Acciones especificas</field>
+        <field name="res_model">acciones_especificas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_tecnicas_dinamicas_form">
+        <field name="name">tecnicas_dinamicas.form</field>
+        <field name="model">tecnicas_dinamicas</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+             <!--<field name="ejecucion_fisica_id" select="2"/>-->
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tecnicas_dinamicas_tree">
+        <field name="name">tecnicas_dinamicas.tree</field>
+        <field name="model">tecnicas_dinamicas</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="nombre"/>
+             <!--<field name="ejecucion_fisica_id"/>-->
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tecnicas_dinamicas">
+        <field name="name">Tecnicas dinamicas </field>
+        <field name="res_model">tecnicas_dinamicas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+   
+
+        
+    <record model="ir.ui.view" id="view_materiales_apoyo_form">
+        <field name="name">materiales_apoyo.form</field>
+        <field name="model">materiales_apoyo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+            <!--<field name="ejecucion_fisica_id" select="2"/>-->
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_materiales_apoyo_tree">
+        <field name="name">materiales_apoyo.tree</field>
+        <field name="model">materiales_apoyo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="nombre"/>
+             <!--<field name="ejecucion_fisica_id"/>-->
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_materiales_apoyo">
+        <field name="name">Materiales de apoyo</field>
+        <field name="res_model">materiales_apoyo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_tipo_componentes_proyecto_form">
+        <field name="name">Tipo Componentes del proyecto.form</field>
+        <field name="model">tipo_componentes_proyecto</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="tipo_comp_proy" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tipo_componentes_proyecto_tree">
+        <field name="name">Tipo Componentes del proyecto.tree</field>
+        <field name="model">tipo_componentes_proyecto</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="tipo_comp_proy"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tipo_componentes_proyecto">
+        <field name="name">Tipo Componentes del proyecto</field>
+        <field name="res_model">tipo_componentes_proyecto</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_componentes_proyecto_form">
+        <field name="name">Componentes del proyecto.form</field>
+        <field name="model">componentes_proyecto</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="tipo_comp_proy_id" select="1" widget="selection"/>
+                <field name="descripcion" select="2"/>
+             <!--<field name="ejecucion_fisica_id" select="0"/>-->
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_componentes_proyecto_tree">
+        <field name="name">Componentes del proyecto.tree</field>
+        <field name="model">componentes_proyecto</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="tipo_comp_proy_id"/>
+                <field name="descripcion"/>
+            <!--<field name="ejecucion_fisica_id"/>-->
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_componentes_proyecto">
+        <field name="name">Componentes del proyecto</field>
+        <field name="res_model">componentes_proyecto</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        
+    <record model="ir.ui.view" id="view_tipo_ejes_transversales_form">
+        <field name="name"> Tipo Ejes Transversales.form</field>
+        <field name="model">tipo_ejes_transversales</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="tipo_eje_transv" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tipo_ejes_transversales_tree">
+        <field name="name">Tipo Ejes Transversales.tree</field>
+        <field name="model">tipo_ejes_transversales</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="tipo_eje_transv"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tipo_ejes_transversales">
+        <field name="name">Tipo Ejes Transversales</field>
+        <field name="res_model">tipo_ejes_transversales</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_ejes_transversales_form">
+        <field name="name">Ejes_transversales.form</field>
+        <field name="model">ejes_transversales</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="tipo_eje_transv_id" select="1" widget="selection"/>
+                <field name="descripcion" select="2"/>
+             <!--<field name="ejecucion_fisica_id" select="0"/>-->
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_ejes_transversales_tree">
+        <field name="name">Ejes_transversales.tree</field>
+        <field name="model">ejes_transversales</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="tipo_eje_transv_id"/>
+                <field name="descripcion"/>
+            <!--<field name="ejecucion_fisica_id"/>-->
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_ejes_transversales">
+        <field name="name">Ejes transversales</field>
+        <field name="res_model">ejes_transversales</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+        
+    <record model="ir.ui.view" id="view_tecnicos_form">
+        <field name="name">tecnicos.form</field>
+        <field name="model">tecnicos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+                <field name="cedula_identidad" select="2"/>
+            <!--<field name="ejecucion_fisica_id" select="0"/>-->
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tecnicos_tree">
+        <field name="name">tecnicos.tree</field>
+        <field name="model">tecnicos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="tecnicos">
+                <field name="nombre"/>
+                <field name="cedula_identidad"/>
+            <!--<field name="ejecucion_fisica_id"/>-->
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tecnicos">
+        <field name="name">Tecnicos</field>
+        <field name="res_model">tecnicos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+    <record model="ir.ui.view" id="view_personas_atendidas_graph">
+            <field name="name">personas_atendidas.graph</field>
+            <field name="model">personas_atendidas</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Personas Atendidas" type="bar">
+                    <field name="tipo_persona_id"/>
+                    <field name="cantidad" operator="+"/>
+                </graph>
+            </field>
+        </record>     
+    <record model="ir.ui.view" id="view_personas_atendidas_form">
+        <field name="name">personas_atendidas.form</field>
+        <field name="model">personas_atendidas</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="cantidad" select="1"/>
+                <field name="tipo_persona_id" select="2"/>
+            <!--<field name="ejecucion_fisica_id" select="0"/>-->
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_personas_atendidas_tree">
+        <field name="name">personas_atendidas.tree</field>
+        <field name="model">personas_atendidas</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="cantidad"/>
+                <field name="tipo_persona_id"/>
+                <field name="ejecucion_fisica_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_personas_atendidas">
+        <field name="name">Personas atendidas</field>
+        <field name="res_model">personas_atendidas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_tipo_persona_form">
+        <field name="name">tipo_persona.form</field>
+        <field name="model">tipo_persona</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Grupo Etario">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tipo_persona_tree">
+        <field name="name">tipo_persona.tree</field>
+        <field name="model">tipo_persona</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Grupo Etario">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tipo_persona">
+        <field name="name">Grupo Etario</field>
+        <field name="res_model">tipo_persona</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_ejecucion_fisica_form">
+        <field name="name">ejecucion_fisica.form</field>
+        <field name="model">ejecucion_fisica</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="ejecucion_fisica">
+                <field name="fundo_id" select="1"/>
+                <field name="organizacion_id" select="2" domain="[('fundo_id','=',[fundo_id])]"/>
+                <field name="acciones_especificas_id" select="0" widget="selection"/>
+                <field name="fecha_planificacion" select="0"/>
+                <field name="fecha_ejecucion" select="0"/>
+                <field name="fecha_actual" select="0"/>
+                <field name="nombre_objetivo" select="0"/>
+                <field name="objetivo" select="0"/>
+                
+                <notebook colspan="5">
+					 <page string="Personas Atendidas">
+                <separator string="Personas Atendidas" colspan="4"/>
+                <field name="numero_familia" select="0"/>
+                <field name="numero_personas" select="0"/>
+                <separator string="Persona Referencial" colspan="2"/>
+                <newline/>
+                <field name="persona_referencial" select="0"/>
+                <field name="cedula_per_ref" select="0"/>
+                <field name="telefono_per_ref" select="0"/>
+                <field name="correo_per_ref" select="0"/>
+                <field name="personas_atendidas_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+                     
+                     <page string="Tecnicas dinamicas">
+                <separator string="Tecnicas dinamicas" colspan="4"/>
+                <field name="tecnicas_dinamicas_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+                
+					 <page string="Materiales de apoyo">
+                <separator string="Materiales de apoyo" colspan="4"/>
+                <field name="materiales_apoyo_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+                
+					 <page string="Componentes del Proyecto">
+                <separator string="Componentes del Proyecto" colspan="4"/>
+                <field name="componentes_proyecto_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+               
+					 <page string="Ejes transversales">
+                <separator string="Ejes transversales" colspan="4"/>
+                <field name="ejes_transversales_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+               
+					 <page string="Tecnicos">
+                <separator string="Tecnicos" colspan="4"/>
+                <field name="tecnicos_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+                
+					
+                </notebook>
+                
+                  
+                <separator colspan="5" string="Resultados"/>
+                <field colspan="4" name="resultado" select="10"/> 
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_ejecucion_fisica_tree">
+        <field name="name">ejecucion_fisica.tree</field>
+        <field name="model">ejecucion_fisica</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="ejecucion_fisica">
+				<field name="organizacion_id"/>
+				<field name="fundo_id"/>
+				
+				<field name="acciones_especificas_id"/>
+				<field name="nombre_objetivo"/>
+                <!--<field name="numero_familia"/>-->
+                <field name="fecha_planificacion"/>
+                <field name="fecha_ejecucion"/>
+                <!--<field name="objetivo"/>-->
+                <!--<field name="resultado"/>-->
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_ejecucion_fisica">
+        <field name="name">Ejecucion fisica</field>
+        <field name="res_model">ejecucion_fisica</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form,tree</field>
+    </record>
+    
+    
+    <!--Boton para la barra de aplicaciones menuitem -->
+    <menuitem name="Ejecucion fisica" id="menu_ejecucion" action="action_ejecucion_fisica"/>
+    
+    <!--1er Menu en la barra del Panel izquierdo -->
+    <menuitem name="Registro Ejecución Fisica" id="menu_ref"  parent="menu_ejecucion" sequence="0"/>
+    
+    <!--1er Submenu en la barra del Panel izquierdo -->
+    <menuitem name="Ejecucion fisica" id="menu_ejecucion_fisica" parent="menu_ref" action="action_ejecucion_fisica" sequence="0"/>
+    <menuitem name="Acciones especificas" id="menu_acciones_especificas" parent="menu_ref" action="action_acciones_especificas" sequence="2"/>
+    <menuitem name="Tecnicas dinamicas " id="menu_tecnicas_dinamicas" parent="menu_ref" action="action_tecnicas_dinamicas" sequence="3"/>
+    <menuitem name="Materiales de apoyo" id="menu_materiales_apoyo" parent="menu_ref" action="action_materiales_apoyo" sequence="4"/>
+    <menuitem name="Componentes del proyecto" id="menu_tipo_componentes_proyecto" parent="menu_ref" action="action_tipo_componentes_proyecto" sequence="5"/>
+    <menuitem name="Ejes transversales" id="menu_tipo_ejes_transversales" parent="menu_ref" action="action_tipo_ejes_transversales" sequence="6"/>
+    <menuitem name="Tecnicos" id="menu_tecnicos" parent="menu_ref" action="action_tecnicos" sequence="7"/>
+    
+    <!--2er Menu en la barra del Panel izquierdo -->
+    <menuitem name="Registro Persona" id="menu_rper"  parent="menu_ejecucion" sequence="0"/>
+    <!-- 2do Submenu en la barra del Panel izquierdo-->
+    <menuitem name="Personas atendidas" id="menu_personas_atendidas" parent="menu_rper" action="action_personas_atendidas" sequence="0" />
+    <menuitem name="Grupo Etario" id="menu_tipo_persona" parent="menu_rper" action="action_tipo_persona" sequence="1"/>
+  
+    
+        
+</data>
+</openerp>

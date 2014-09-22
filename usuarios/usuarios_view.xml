@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record model="ir.ui.view" id="view_usuario_form">
+        <field name="name">usuario.form</field>
+        <field name="model">usuario</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="usuario">
+				<separator string="Usuario del Sistema" colspan="4"/>
+				 <notebook colspan="5">
+					 <page string="Datos Personales">
+               
+                <field name="cedula" select="1"/>
+                <field name="users_id" select="2"/>
+                <field name="telefono" select="1"/>
+                <field name="fundo_id" select="0"/>
+                <field name="tipo_id" select="0" widget="selection"/>
+                </page>
+                                  
+               </notebook>
+                
+                      
+                  <notebook colspan="5">
+					 <page string="Direccion">
+               <!-- <separator string="Direccion" colspan="4"/>-->
+                <!--<field name="edif_apto_ids" colspan="4" nolabel="1" select="0"/>-->
+					                               
+                <field name="redi_id" select="0"/>
+                <field name="estado_id" select="1" domain="[('redi_id','=',[redi_id])]"/>
+                <field name="municipio_id" select="2" domain="[('estado_id','=',[estado_id])]"/>
+                <field name="parroquia_id" select="3" domain="[('municipio_id','=',[municipio_id])]"/>
+                <field name="sector" select="4"/>
+                <field name="calle" select="0"/>
+                <field name="casa/apto" select="0"/>
+                
+                    </page>
+                                  
+               </notebook>
+                
+                      
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_usuario_tree">
+        <field name="name">usuario.tree</field>
+        <field name="model">usuario</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="usuario">
+                <field name="cedula"/>
+                <field name="users_id"/>
+                </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_usuario">
+        <field name="name">Usuarios</field>
+        <field name="res_model">usuario</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+   
+    <record model="ir.ui.view" id="view_tipo_usuario_form">
+        <field name="name">tipo_usuario.form</field>
+        <field name="model">tipo_usuario</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="tipo_usuario">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tipo_usuario_tree">
+        <field name="name">tipo_usuario.tree</field>
+        <field name="model">tipo_usuario</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="tipo_usuario">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tipo_usuario">
+        <field name="name">Tipo de usuario</field>
+        <field name="res_model">tipo_usuario</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+    
+     <!-- Botón para la barra de Aplicaciones (Horizontal Superior) -->
+	<menuitem name="Usuario" id="menu_usuar"/>
+	<!-- 1er Menú en la barra del panel Izquierdo -->
+	<menuitem name="Registro de Usuario" id="menu_usua" parent="menu_usuar" sequence="0"/> 
+	
+	<!-- 1er SubMenú en la barra del panel Izquierdo -->
+	<menuitem name="Usuario" id="menu_usuario" parent="menu_usua" action="action_usuario" sequence="0"/>
+	<menuitem name="Tipo de Usuario" id="menu_tipo_usuario" parent="menu_usua" action="action_tipo_usuario" sequence="1"/>
+	
+    
+</data>
+</openerp>

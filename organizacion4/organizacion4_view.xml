@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record model="ir.ui.view" id="view_organizacion_form">
+        <field name="name">organizacion.form</field>
+        <field name="model">organizacion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="organizacion">
+                <field name="nombre" select="1"/>
+                <field name="rif" select="2"/>
+                <field name="fecha_exp" select="0"/>
+                <field name="fundo_id" select="0"/>
+                <!--<field name="objet_id" select="0"/>-->
+				<!--<field name="productiva_id" select="0"/>-->
+				<field name="estatus_nombre" select="7"/>
+				<field name="productiva_nombre" select="8"/>
+				<field name="org_sup_id" select="0"/>
+				<!--<field name="a_n_id" select="0"/>-->
+				<newline/>
+				<separator string="Objeto de la Organización" colspan="2"/>
+				<separator string="Observaciones" colspan="2"/>
+                <field name="objeto" colspan="2" nolabel="1" select="0"/>
+                <field name="observacion" colspan="2" nolabel="1" select="0"/>
+                
+                <notebook colspan="5">
+					<page string="Superficie Adjudicada de la Organización">
+						<separator string="Superficie Adjudicada de la Organización" colspan="4"/>
+						<!--control_superficie es un campo oculto el cual es utilizado para poder realizar la funcion, no guarda nada-->
+						<field name="control_superficie" select="3" invisible="True"/>
+						<field name="supeficie_ids" colspan="4" nolabel="1" select="0"/>
+					</page>
+					 <page string="Documentos de la Organización">
+						<separator string="Documentos de la Organización" colspan="4"/>
+						<field name="documento_ids" colspan="4" nolabel="1" select="0"/>
+					 </page>
+					                 
+				</notebook>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_organizacion_tree">
+        <field name="name">organizacion.tree</field>
+        <field name="model">organizacion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="organizacion">
+                <field name="nombre"/>
+                <field name="rif"/>
+                <field name="fecha_exp"/>
+                <field name="observacion"/>
+                <field name="fundo_id"/>
+                <!--<field name="objet_id"/>-->
+                <field name="objeto"/>
+                <!--<field name="productiva_id"/>-->
+                <!--<field name="a_n_id"/>-->
+                <field name="org_sup_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_organizacion">
+        <field name="name">Organización</field>
+        <field name="res_model">organizacion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_superficie_organizacion_form">
+        <field name="name">superficie_organizacion.form</field>
+        <field name="model">superficie_organizacion</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <!-- <field name="superficie_id" select="1"/> -->
+                <field name="espacio" select="2"/>
+                 <field name="tipo_id" select="0"/>
+                <separator string="Observaciones" colspan="4"/>
+                <field name="observacion" colspan="4" nolabel="1" select="0"/>
+               
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_superficie_organizacion_tree">
+        <field name="name">superficie_organizacion.tree</field>
+        <field name="model">superficie_organizacion</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <!-- <field name="superficie_id"/> -->
+                <field name="espacio"/>
+                <field name="observacion"/>
+                <field name="tipo_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_superficie_organizacion">
+        <field name="name">Superficie Adjudicada de la Organizacion</field>
+        <field name="res_model">superficie_organizacion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_objeto_form">
+        <field name="name">objeto.form</field>
+        <field name="model">objeto</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="objeto">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_objeto_tree">
+        <field name="name">objeto.tree</field>
+        <field name="model">objeto</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="objeto">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_objeto">
+        <field name="name">Objeto</field>
+        <field name="res_model">objeto</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_productiva_form">
+        <field name="name">productiva.form</field>
+        <field name="model">productiva</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="productiva">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_productiva_tree">
+        <field name="name">productiva.tree</field>
+        <field name="model">productiva</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="productiva">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_productiva">
+        <field name="name">Productiva</field>
+        <field name="res_model">productiva</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_estatus_form">
+        <field name="name">estatus.form</field>
+        <field name="model">estatus</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="estatus">
+                <field name="a_n" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_estatus_tree">
+        <field name="name">estatus.tree</field>
+        <field name="model">estatus</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="estatus">
+                <field name="a_n"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_estatus">
+        <field name="name">Estatus</field>
+        <field name="res_model">estatus</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_organizacion_superior_form">
+        <field name="name">organizacion_superior.form</field>
+        <field name="model">organizacion_superior</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="organizacion_superior">
+                <field name="nombre" select="1"/>
+                <field name="rif" select="2"/>
+                <field name="direccion" select="0"/>
+                <field name="persona_contacto" select="0"/>
+                <field name="telefono" select="0"/>
+                <field name="correo" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_organizacion_superior_tree">
+        <field name="name">organizacion_superior.tree</field>
+        <field name="model">organizacion_superior</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="organizacion_superior">
+                <field name="nombre"/>
+                <field name="rif"/>
+                <field name="persona_contacto"/>
+                <field name="telefono"/>
+                
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_organizacion_superior">
+        <field name="name">Organizacion Superior</field>
+        <field name="res_model">organizacion_superior</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_persona_form">
+        <field name="name">persona.form</field>
+        <field name="model">persona</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="persona">
+                <field name="nombres" select="1"/>
+                <field name="cedula" select="2"/>
+                <field name="telefono" select="3"/>
+                <field name="correo" select="4"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_persona_tree">
+        <field name="name">persona.tree</field>
+        <field name="model">persona</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="persona">
+                <field name="nombres"/>
+                <field name="cedula"/>
+                <field name="telefono"/>
+                <field name="correo"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_persona">
+        <field name="name">Persona</field>
+        <field name="res_model">persona</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_documentos_form">
+        <field name="name">documentos.form</field>
+        <field name="model">documentos</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Documentos">
+                <!-- <field name="documento_id" select="1"/> -->
+                <field name="codigo" select="2"/>
+                <field name="fecha_exp" select="0"/>
+                <field name="fecha_ven" select="0"/>
+                <field name="persona_id" select="0"/>
+                <field name="tipo_id" select="0"/>
+                <field name="legal_id" select="0" domain="[('tipo_id','=',[tipo_id])]"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_documentos_tree">
+        <field name="name">documentos.tree</field>
+        <field name="model">documentos</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Documentos">
+                <!-- <field name="documento_id"/> -->
+                <field name="codigo"/>
+                <field name="fecha_exp"/>
+                <field name="fecha_ven"/>
+                <field name="persona_id"/>
+                <field name="tipo_id"/>
+                <field name="legal_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_documentos">
+        <field name="name">Documentos</field>
+        <field name="res_model">documentos</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_tipo_documento_form">
+        <field name="name">tipo_documento.form</field>
+        <field name="model">tipo_documento</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="tipo_documento">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tipo_documento_tree">
+        <field name="name">tipo_documento.tree</field>
+        <field name="model">tipo_documento</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="tipo_documento">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tipo_documento">
+        <field name="name">Tipo de Documento</field>
+        <field name="res_model">tipo_documento</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_documentos_legales_form">
+        <field name="name">documentos_legales.form</field>
+        <field name="model">documentos_legales</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="documentos_legales">
+                <field name="nombre" select="1"/>
+                <field name="tipo_id" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_documentos_legales_tree">
+        <field name="name">documentos_legales.tree</field>
+        <field name="model">documentos_legales</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="documentos_legales">
+                <field name="nombre"/>
+                <field name="tipo_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_documentos_legales">
+        <field name="name">Documentos Legales</field>
+        <field name="res_model">documentos_legales</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Botón para la barra de Aplicaciones (Horizontal Superior) -->
+	<menuitem name="Organización" id="menu_org"/>
+	
+	<!-- 1er Menú en la barra del panel Izquierdo -->
+		<menuitem name="Organizaciones" id="menu_organ" parent="menu_org" sequence="0"/>
+		
+			<!-- 1er SubMenú en la barra del panel Izquierdo -->
+			<menuitem name="Organización" id="menu_organizacion" parent="menu_organ" action="action_organizacion" sequence="1"/>
+			<menuitem name="Organizacion Superior" id="menu_organizacion_superior" parent="menu_organ" action="action_organizacion_superior" sequence="3"/>
+			<!--<menuitem name="Objeto" id="menu_objeto" parent="menu_organ" action="action_objeto" sequence="2"/>-->
+			
+		<!-- 2do Menú en la barra del panel Izquierdo -->
+		<menuitem name="Caracteristicas de la Organización" id="menu_carac" parent="menu_org" sequence="1"/>
+		
+			<!-- 2do SubMenú en la barra del panel Izquierdo -->
+			<!--<menuitem name="Productiva" id="menu_productiva" parent="menu_carac" action="action_productiva" sequence="1"/>-->
+			<menuitem name="Estatus" id="menu_estatus" parent="menu_carac" action="action_estatus" sequence="0"/>
+			<menuitem name="Superficie Adjudicada de la Organización" id="menu_superficie_organizacion" parent="menu_carac" action="action_superficie_organizacion" sequence="2"/>
+			<menuitem name="Persona" id="menu_persona" parent="menu_carac" action="action_persona" sequence="4"/>
+		
+		<!-- 3er Menú en la barra del panel Izquierdo -->
+		<menuitem name="Documentos de la Organización" id="menu_doc" parent="menu_org" sequence="2"/>
+		
+			<!-- 3er SubMenú en la barra del panel Izquierdo -->
+			<menuitem name="Documentos" id="menu_documentos" parent="menu_doc" action="action_documentos" sequence="0"/>
+			<menuitem name="Documentos Legales" id="menu_documentos_legales" parent="menu_doc" action="action_documentos_legales" sequence="2"/>
+			<menuitem name="Tipo de Documento" id="menu_tipo_documento" parent="menu_doc" action="action_tipo_documento" sequence="1"/>
+			
+        
+
+        
+</data>
+</openerp>

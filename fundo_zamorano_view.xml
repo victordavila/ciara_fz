@@ -1,0 +1,556 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record model="ir.ui.view" id="view_fundo_form">
+        <field name="name">fundo.form</field>
+        <field name="model">fundo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="fundo">
+				<group col="4" colspan="6" string="Datos del Fundo Zamorano">
+					
+					<field name="nombre" select="3" />
+					<field name="codigo" select="1"/>
+					<!--<field name="tiponaturalidad_id" select="5" domain="[('naturalidad_id','=',[naturalidad_id])]"/>-->
+					<field name="tipo_id" select="2" widget="selection"/>
+					<!--<field name="estatus_id" select="6" widget="selection"/>-->
+					<field name="estatus_nombre" select="7"/>
+				</group>
+                <notebook colspan="5">
+					<page string="Dirección">
+						<separator string="Dirección" colspan="4" orientation="horizontal"/>
+						<field name="ppas_id" select="0"/>
+						<field name="redi_id" select="1"/>
+						<field name="estado_id" select="2" domain="[('redi_id','=',[redi_id])]" />
+						<field name="municipio_id" select="3" domain="[('estado_id','=',[estado_id])]"/>
+						
+						<field name="parroquia_id" select="4" domain="[('municipio_id','=',[municipio_id])]"/>	
+						
+						<field name="sector_id" select="5" domain="[('parroquia_id','=',[parroquia_id])]"/>		
+						<newline/>
+						<newline/>
+						<newline/>				
+						<group colspan="4" string="Dirección Práctica">
+							<field name="direccion" select="0"/>
+						</group>
+					</page>
+					<page string="Tipo de Población del Fundo Zamorano">
+						<separator string="Tipo de Población del Fundo Zamorano" colspan="4"/>
+						<field name="naturalidad_ids" colspan="4" nolabel="1" select="0"/>
+					 </page>
+					 <page string="Superficie del Fundo Zamorano">
+						<separator string="Superficie del Fundo Zamorano" colspan="4"/>
+						<!--control_superficie es un campo oculto el cual es utilizado para poder realizar la funcion, no guarda nada-->
+						<field name="control_superficie" select="3" invisible="True"/>
+						<field name="superficie_ids" colspan="4" nolabel="1" select="0"/>
+					 </page>
+                
+				</notebook>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fundo_tree">
+        <field name="name">fundo.tree</field>
+        <field name="model">fundo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="fundo">
+                <field name="codigo"/>
+                <field name="nombre"/>
+                <!--<field name="direccion"/>-->
+                <field name="ppas_id"/>
+                <field name="redi_id"/>
+                <field name="estado_id"/>
+                <!--<field name="municipio_id"/>-->
+                <!--<field name="parroquia_id"/>-->
+                <!--<field name="sector_id"/>-->
+                <field name="tipo_id"/>
+                <!--<field name="estatus_id"/>-->
+                <!--<field name="naturalidad_id"/>-->
+                <!--<field name="tiponaturalidad_id"/>-->
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fundo">
+        <field name="name">Fundos Zamoranos</field>
+        <field name="res_model">fundo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    
+
+        
+    <record model="ir.ui.view" id="view_ppas_form">
+        <field name="name">ppas.form</field>
+        <field name="model">ppas</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="ppas">
+                <field name="nombre" select="1"/>
+                <field name="codigo" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_ppas_tree">
+        <field name="name">ppas.tree</field>
+        <field name="model">ppas</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="ppas">
+                <field name="nombre"/>
+                <field name="codigo"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_ppas">
+        <field name="name">Polo Patriotico</field>
+        <field name="res_model">ppas</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_redi_form">
+        <field name="name">redi.form</field>
+        <field name="model">redi</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="redi">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_redi_tree">
+        <field name="name">redi.tree</field>
+        <field name="model">redi</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="redi">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_redi">
+        <field name="name">REDI</field>
+        <field name="res_model">redi</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_inces_estados_form">
+        <field name="name">inces_estados.form</field>
+        <field name="model">inces_estados</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="inces_estados">
+                <field name="estado" select="1"/>
+                <field name="codigo" select="2"/>
+                <field name="redi_id" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_inces_estados_tree">
+        <field name="name">inces_estados.tree</field>
+        <field name="model">inces_estados</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="inces_estados">
+                <field name="estado"/>
+                <field name="codigo"/>
+                <field name="redi_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_inces_estados">
+        <field name="name">Configuracion Estados</field>
+        <field name="res_model">inces_estados</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_inces_municipios_form">
+        <field name="name">inces_municipios.form</field>
+        <field name="model">inces_municipios</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="inces_municipios">
+                <field name="municipio" select="1"/>
+                <field name="codigo" select="2"/>
+                <field name="estado_id" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_inces_municipios_tree">
+        <field name="name">inces_municipios.tree</field>
+        <field name="model">inces_municipios</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="inces_municipios">
+                <field name="municipio"/>
+                <field name="codigo"/>
+                <field name="estado_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_inces_municipios">
+        <field name="name">Configuracion Municipios</field>
+        <field name="res_model">inces_municipios</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_inces_parroquias_form">
+        <field name="name">inces_parroquias.form</field>
+        <field name="model">inces_parroquias</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="inces_parroquias">
+                <field name="parroquia" select="1"/>
+                <field name="codigo" select="2"/>
+                <field name="municipio_id" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_inces_parroquias_tree">
+        <field name="name">inces_parroquias.tree</field>
+        <field name="model">inces_parroquias</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="inces_parroquias">
+                <field name="parroquia"/>
+                <field name="codigo"/>
+                <field name="municipio_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_inces_parroquias">
+				
+        <field name="name">Configuracion Parroquia</field>
+        <field name="res_model">inces_parroquias</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_inces_sectores_form">
+        <field name="name">inces_sectores.form</field>
+        <field name="model">inces_sectores</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="inces_sectores">
+                <field name="sector" select="1"/>
+                <field name="codigo" select="2"/>
+                <field name="parroquia_id" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_inces_sectores_tree">
+        <field name="name">inces_sectores.tree</field>
+        <field name="model">inces_sectores</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="inces_sectores">
+                <field name="sector"/>
+                <field name="codigo"/>
+                <field name="parroquia_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_inces_sectores">
+        <field name="name">Configuracion de Sectores</field>
+        <field name="res_model">inces_sectores</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_superficie_fundo_form">
+        <field name="name">superficie_fundo.form</field>
+        <field name="model">superficie_fundo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <!--<field name="superficie_id" select="1"/>-->
+                <field name="espacio" select="2"/>
+                <field name="tipo_id" select="0"/>
+                <field name="observacion" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_superficie_fundo_tree">
+        <field name="name">superficie_fundo.tree</field>
+        <field name="model">superficie_fundo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="superficie_id"/>
+                <field name="espacio"/>
+                <field name="tipo_id"/>
+                <field name="observacion"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_superficie_fundo_graph">
+            <field name="name">superficie_fundo.graph</field>
+            <field name="model">superficie_fundo</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Superficie" type="bar">
+                    <field name="superficie_id"/>
+                    <field name="observacion" operator="+"/>
+                </graph>
+            </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_superficie_fundo">
+        <field name="name">Superficie</field>
+        <field name="res_model">superficie_fundo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_tipo_superficie_form">
+        <field name="name">tipo_superficie.form</field>
+        <field name="model">tipo_superficie</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="tipo_superficie">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tipo_superficie_tree">
+        <field name="name">tipo_superficie.tree</field>
+        <field name="model">tipo_superficie</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="tipo_superficie">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tipo_superficie">
+        <field name="name">Tipo de  Superficie</field>
+        <field name="res_model">tipo_superficie</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_tipo_fundo_form">
+        <field name="name">tipo_fundo.form</field>
+        <field name="model">tipo_fundo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="tipo_fundo">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tipo_fundo_tree">
+        <field name="name">tipo_fundo.tree</field>
+        <field name="model">tipo_fundo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="tipo_fundo">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tipo_fundo">
+        <field name="name">Tipo Fundo</field>
+        <field name="res_model">tipo_fundo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_naturalidad_fundo_form">
+        <field name="name">naturalidad_fundo.form</field>
+        <field name="model">naturalidad_fundo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de Población del Fundo Zamorano">
+                <field name="naturalidad_id" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_naturalidad_fundo_tree">
+        <field name="name">naturalidad_fundo.tree</field>
+        <field name="model">naturalidad_fundo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Tipo de Población del Fundo Zamorano">
+                <field name="naturalidad_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_naturalidad_fundo">
+        <field name="name">Naturalidad del Fundo</field>
+        <field name="res_model">naturalidad_fundo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+	<record model="ir.ui.view" id="view_naturalidad_fundo_tipo_form">
+        <field name="name">naturalidad_fundo_tipo.form</field>
+        <field name="model">naturalidad_fundo_tipo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de Población del Fundo Zamorano">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_naturalidad_fundo_tipo_tree">
+        <field name="name">naturalidad_fundo_tipo.tree</field>
+        <field name="model">naturalidad_fundo_tipo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Tipo de Población del Fundo Zamorano">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_naturalidad_fundo_tipo">
+        <field name="name">Tipo de Población del Fundo Zamorano</field>
+        <field name="res_model">naturalidad_fundo_tipo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        
+    <!--<record model="ir.ui.view" id="view_tipo_naturalidad_fundo_form">
+        <field name="name">tipo_naturalidad_fundo.form</field>
+        <field name="model">tipo_naturalidad_fundo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="tipo_naturalidad_fundo">
+                <field name="nombre" select="1"/>
+                <field name="naturalidad_id" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tipo_naturalidad_fundo_tree">
+        <field name="name">tipo_naturalidad_fundo.tree</field>
+        <field name="model">tipo_naturalidad_fundo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="tipo_naturalidad_fundo">
+                <field name="nombre"/>
+                <field name="naturalidad_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tipo_naturalidad_fundo">
+        <field name="name">Tipo de Naturalidad</field>
+        <field name="res_model">tipo_naturalidad_fundo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>-->
+    
+
+        
+    <record model="ir.ui.view" id="view_a_n_form">
+        <field name="name">a_n.form</field>
+        <field name="model">a_n</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="a_n">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_a_n_tree">
+        <field name="name">a_n.tree</field>
+        <field name="model">a_n</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="a_n">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_a_n">
+		
+        <field name="name">Estatus</field>
+        <field name="res_model">a_n</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+   
+    
+    <!-- Botón para la barra de Aplicaciones (Horizontal Superior) -->
+	<menuitem name="Fundos Zamoranos" id="menu_fundos"/>
+    
+    <!-- 1er Menú en la barra del panel Izquierdo -->
+	<menuitem name="Fundos Zamoranos" id="menu_fz_fundos" parent="menu_fundos" sequence="0"/>
+	
+	<!-- 1er SubMenú en la barra del panel Izquierdo -->
+    <menuitem name="Fundos Zamoranos" id="menu_fundo" parent="menu_fz_fundos" action="action_fundo" sequence="0"/>
+    <menuitem name="Polo Patriotico" id="menu_ppas" parent="menu_fz_fundos" action="action_ppas" sequence="1"/>
+    
+    <!-- 2do Menú en la barra del panel Izquierdo -->
+	<menuitem name="Configuración" id="menu_fz_conf" parent="menu_fundos" sequence="2"/>
+	
+	<!-- 2do SubMenú en la barra del panel Izquierdo -->
+    <menuitem name="REDI" id="menu_redi" parent="menu_fz_conf" action="action_redi" sequence="0"/>
+    <menuitem name="Estados" id="menu_inces_estados" parent="menu_fz_conf" action="action_inces_estados" sequence="1"/>
+    <menuitem name="Municipios" id="menu_inces_municipios" parent="menu_fz_conf" action="action_inces_municipios" sequence="2"/>
+    <menuitem name="Parroquia" id="menu_inces_parroquias" parent="menu_fz_conf" action="action_inces_parroquias" sequence="3"/>
+    <menuitem name="Sectores" id="menu_inces_sectores" parent="menu_fz_conf" action="action_inces_sectores" sequence="4"/>
+    
+    <!-- 3er Menú en la barra del panel Izquierdo -->
+	<menuitem name="Caracteristicas del Fundo Zamorano" id="menu_fz_caract" parent="menu_fundos" sequence="1"/>
+    
+    <!-- 3er SubMenú en la barra del panel Izquierdo -->
+    <menuitem name="Superficie" id="menu_superficie_fundo" parent="menu_fz_caract" action="action_superficie_fundo" sequence="0"/>
+    <menuitem name="Tipo de  Superficie" id="menu_tipo_superficie" parent="menu_fz_caract" action="action_tipo_superficie" sequence="1"/>
+    <menuitem name="Tipo Fundo Zamorano" id="menu_tipo_fundo" parent="menu_fz_caract" action="action_tipo_fundo" sequence="2"/>
+    <menuitem name="Tipo de Población del Fundo Zamorano" id="menu_naturalidad_fundo_tipo" parent="menu_fz_caract" action="action_naturalidad_fundo_tipo" sequence="3"/>
+    <!--<menuitem name="Tipo de Naturalidad" id="menu_tipo_naturalidad_fundo" parent="menu_fz_caract" action="action_tipo_naturalidad_fundo" sequence="4"/>-->
+    <!--<menuitem name="Estatus" id="menu_a_n" parent="menu_fz_caract" action="action_a_n" sequence="5"/>-->
+
+        
+</data>
+</openerp>

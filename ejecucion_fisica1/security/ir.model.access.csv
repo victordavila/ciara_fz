@@ -1,0 +1,10 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_acciones_especificas","acciones_especificas","model_acciones_especificas","base.group_user",1,0,0,0
+"access_tecnicas_dinamicas","tecnicas_dinamicas","model_tecnicas_dinamicas","base.group_user",1,0,0,0
+"access_materiales_apoyo","materiales_apoyo","model_materiales_apoyo","base.group_user",1,0,0,0
+"access_componentes_proyecto","componentes_proyecto","model_componentes_proyecto","base.group_user",1,0,0,0
+"access_ejes_transversales","ejes_transversales","model_ejes_transversales","base.group_user",1,0,0,0
+"access_tecnicos","tecnicos","model_tecnicos","base.group_user",1,0,0,0
+"access_personas_atendidas","personas_atendidas","model_personas_atendidas","base.group_user",1,0,0,0
+"access_tipo_persona","tipo_persona","model_tipo_persona","base.group_user",1,0,0,0
+"access_ejecucion_fisica","ejecucion_fisica","model_ejecucion_fisica","base.group_user",1,0,0,0

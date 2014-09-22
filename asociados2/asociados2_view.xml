@@ -1,0 +1,567 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record model="ir.ui.view" id="view_miembro_referencial_form">
+        <field name="name">miembro_referencial.form</field>
+        <field name="model">miembro_referencial</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+               
+               
+                <field name="nombres" select="2"/>
+                <field name="codigo" select="0"/>
+                <field name="fundo_id" select="0"/>
+                <field name="Lugar_residencia" select="0"/>
+                <field name="produce" select="0"/>
+              
+              
+            
+                <notebook colspan="9">
+                
+                <page string="Direccion">
+				<separator string="Direccion" colspan="4"/>	
+                <field name="redi_id" select="0"/>
+                <field name="estado_id" select="1" domain="[('redi_id','=',[redi_id])]"/>
+                <field name="municipio_id" select="2" domain="[('estado_id','=',[estado_id])]"/>
+                <field name="parroquia_id" select="3" domain="[('municipio_id','=',[municipio_id])]"/>
+                <field name="sector" select="4"/>
+                <field name="av_calle" select="5"/>
+                <field name="casa_edif" select="6"/>
+                <field name="numero" select="7"/>
+                </page>
+                
+                <page string="Familia">
+                <separator string="Familia" colspan="4"/>
+                <field name="grupo_familiar_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+               
+                </notebook>
+               
+                
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_miembro_referencial_tree">
+        <field name="name">miembro_referencial.tree</field>
+        <field name="model">miembro_referencial</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="codigo"/>
+                <field name="nombres"/>
+                <field name="redi_id"/>
+                <field name="estado_id"/>
+                <field name="municipio_id"/>
+                <field name="parroquia_id"/>
+                <field name="sector"/>
+                <field name="av_calle"/>
+                <field name="casa_edif"/>
+                <field name="numero"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_miembro_referencial">
+        <field name="name">Miembro Referencial</field>
+        <field name="res_model">miembro_referencial</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+    <record model="ir.ui.view" id="view_grupo_familiar_form">
+        <field name="name">grupo_familiar.form</field>
+        <field name="model">grupo_familiar</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+                <field name="edad" select="2"/>
+                <field name="apellidos"/>
+                <field name="cedula"/>
+                <field name="fecha_nac"/>
+                <field name="genero_id" widget="selection"/>
+                <field name="estado_civil_id" widget="selection"/>
+                <field name="nivel_educativo_id" widget="selection"/>
+                <field name="partido_politico_id"/>
+                <field name="instrumento_agrario_id"/>
+                <field name="correo"/>
+                <field name="pasaporte"/>
+                <field name="fecha_vence"/>
+                
+                <notebook colspan="8">
+					
+			    <page string="Fundo">
+                <separator string="Fundo" colspan="4"/>
+                <field name="fundo_organizacion_grupo_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+                
+                <page string="Telefono">
+                <separator string="Telefono" colspan="4"/>
+                <field name="telefono_grupo_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+					
+				<page string="Movimiento">	
+                <separator string="Movimiento" colspan="4"/>
+                <field name="movimiento_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+                
+                <page string="Mision">
+                <separator string="Mision" colspan="4"/>
+                <field name="misiones_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+                  
+                <page string="Enfermedad/Discapacidad">
+                <separator string="Enfermedad/Discapacidad" colspan="4"/>
+                <field name="enf_dis_grupo_ids" colspan="4" nolabel="1" select="0"/>
+                </page>
+                
+                </notebook>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_grupo_familiar_tree">
+        <field name="name">grupo_familiar.tree</field>
+        <field name="model">grupo_familiar</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+				<field name="miembro_referencial_id"/>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="cedula"/>
+                <field name="fecha_nac"/>
+                <field name="genero_id"/>
+                <field name="estado_civil_id"/>
+                <field name="nivel_educativo_id"/>
+                <field name="partido_politico_id"/>
+                <field name="instrumento_agrario_id"/> 
+                <field name="correo"/>
+                <field name="pasaporte"/>
+                <field name="fecha_vence"/> 
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_grupo_familiar">
+        <field name="name">Grupo Familiar</field>
+        <field name="res_model">grupo_familiar</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+   
+        
+    <record model="ir.ui.view" id="view_fundo_organizacion_grupo_form">
+        <field name="name">fundo_organizacion_grupo.form</field>
+        <field name="model">fundo_organizacion_grupo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="fundo_id" select="1"/>
+                <field name="organizacion_id" select="2"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_fundo_organizacion_grupo_tree">
+        <field name="name">fundo_organizacion_grupo.tree</field>
+        <field name="model">fundo_organizacion_grupo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+				<field name="grupo_familiar_id"/>
+                <field name="fundo_id"/>
+                <field name="organizacion_id"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_fundo_organizacion_grupo">
+        <field name="name">Fundo Organizacion Grupo</field>
+        <field name="res_model">fundo_organizacion_grupo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+    
+        
+    <record model="ir.ui.view" id="view_genero_form">
+        <field name="name">genero.form</field>
+        <field name="model">genero</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_genero_tree">
+        <field name="name">genero.tree</field>
+        <field name="model">genero</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_genero">
+        <field name="name">Genero</field>
+        <field name="res_model">genero</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+        
+    <record model="ir.ui.view" id="view_estado_civil_form">
+        <field name="name">estado_civil.form</field>
+        <field name="model">estado_civil</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_estado_civil_tree">
+        <field name="name">estado_civil.tree</field>
+        <field name="model">estado_civil</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_estado_civil">
+        <field name="name">Estado Civil</field>
+        <field name="res_model">estado_civil</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+  
+
+        
+    <record model="ir.ui.view" id="view_nivel_educativo_form">
+        <field name="name">nivel_educativo.form</field>
+        <field name="model">nivel_educativo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_nivel_educativo_tree">
+        <field name="name">nivel_educativo.tree</field>
+        <field name="model">nivel_educativo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_nivel_educativo">
+        <field name="name">Nivel Educativo</field>
+        <field name="res_model">nivel_educativo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_partido_politico_form">
+        <field name="name">partido_politico.form</field>
+        <field name="model">partido_politico</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_partido_politico_tree">
+        <field name="name">partido_politico.tree</field>
+        <field name="model">partido_politico</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_partido_politico">
+        <field name="name">Parido Politico</field>
+        <field name="res_model">partido_politico</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_intrumento_agrario_form">
+        <field name="name">intrumento_agrario.form</field>
+        <field name="model">intrumento_agrario</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_intrumento_agrario_tree">
+        <field name="name">intrumento_agrario.tree</field>
+        <field name="model">intrumento_agrario</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_intrumento_agrario">
+        <field name="name">Instrumento Agrario</field>
+        <field name="res_model">intrumento_agrario</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_tipo_telefono_form">
+        <field name="name">tipo_telefono.form</field>
+        <field name="model">tipo_telefono</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_tipo_telefono_tree">
+        <field name="name">tipo_telefono.tree</field>
+        <field name="model">tipo_telefono</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_tipo_telefono">
+        <field name="name">Tipo Telefono</field>
+        <field name="res_model">tipo_telefono</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+    
+
+    <record model="ir.ui.view" id="view_movimiento_grupo_form">
+        <field name="name">movimiento_grupo.form</field>
+        <field name="model">movimiento_grupo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_movimiento_grupo_tree">
+        <field name="name">movimiento_grupo.tree</field>
+        <field name="model">movimiento_grupo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="grupo_familiar_id"/>
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_movimiento_grupo">
+        <field name="name">Movimiento Grupo</field>
+        <field name="res_model">movimiento_grupo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+    
+        
+    <record model="ir.ui.view" id="view_mision_form">
+        <field name="name">mision.form</field>
+        <field name="model">mision</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="nombre" select="1"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_mision_tree">
+        <field name="name">mision.tree</field>
+        <field name="model">mision</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="nombre"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_mision">
+        <field name="name">Mision</field>
+        <field name="res_model">mision</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+    <record model="ir.ui.view" id="view_misiones_grupo_form">
+        <field name="name">misiones_grupo.form</field>
+        <field name="model">misiones_grupo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="mision_id" select="1"/>
+            <!--<field name="grupo_familiar_id" select="2"/>-->
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_misiones_grupo_tree">
+        <field name="name">misiones_grupo.tree</field>
+        <field name="model">misiones_grupo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="mision_id"/>
+            <!--<field name="grupo_familiar_id"/>-->
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_misiones_grupo">
+        <field name="name">Misiones Grupo</field>
+        <field name="res_model">misiones_grupo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+    
+
+    <record model="ir.ui.view" id="view_enf_dis_grupo_form">
+        <field name="name">enf_dis_grupo.form</field>
+        <field name="model">enf_dis_grupo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+				<field name="enfer_disc" select="2"/>
+                <field name="nombre" select="1"/>
+                <field name="observacion" select="2"/>
+				
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_enf_dis_grupo_tree">
+        <field name="name">enf_dis_grupo.tree</field>
+        <field name="model">enf_dis_grupo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+				<field name="grupo_familiar_id"/>
+				<field name="enfer_disc"/>
+                <field name="nombre"/>
+                <field name="observacion"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_enf_dis_grupo">
+        <field name="name">Enfermedad Discapacidad Grupo</field>
+        <field name="res_model">enf_dis_grupo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_telefono_grupo_form">
+        <field name="name">telefono_grupo.form</field>
+        <field name="model">telefono_grupo</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+            <!--<field name="grupo_familiar_id" select="1"/>-->
+                <field name="numero" select="2"/>
+                <field name="tipo_telefono_id" select="0"/>
+
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_telefono_grupo_tree">
+        <field name="name">telefono_grupo.tree</field>
+        <field name="model">telefono_grupo</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="">
+				<field name="grupo_familiar_id"/>
+                <field name="numero"/>
+                <field name="tipo_telefono_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_telefono_grupo">
+        <field name="name">Telefono Grupo</field>
+        <field name="res_model">telefono_grupo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+    
+
+    <!--Boton para la barra de aplicaciones menuitem -->
+    <menuitem name="Familias Asociados" id="menu_miembro_referencial_"/>
+    
+    <!--1er Menu en la barra del Panel izquierdo-->
+    <menuitem name="Registro Familias" id="menu_rmf" parent="menu_miembro_referencial_" sequence="0"/>
+        <menuitem name="Miembro Referencial" id="menu_miembro_referencial" parent="menu_rmf" action="action_miembro_referencial" sequence="0"/>
+        
+    <!--3er Menu en la barra del Panel izquierdo-->
+    <menuitem name="Caracteristicas del Registro" id="menu_carac_reg" parent="menu_miembro_referencial_" sequence="2"/>
+		<menuitem name="Genero" id="menu_genero" parent="menu_carac_reg" action="action_genero" sequence="0"/>
+        <menuitem name="Estado Civil" id="menu_estado_civil" parent="menu_carac_reg" action="action_estado_civil" sequence="1"/>
+        <menuitem name="Nivel Educativo" id="menu_nivel_educativo" parent="menu_carac_reg" action="action_nivel_educativo" sequence="2"/>
+        <menuitem name="Partido Politico" id="menu_partido_politico" parent="menu_carac_reg" action="action_partido_politico" sequence="3"/>
+        <menuitem name="Instrumento Agrario" id="menu_intrumento_agrario" parent="menu_carac_reg" action="action_intrumento_agrario" sequence="4"/>
+        <menuitem name="Tipo Telefono" id="menu_tipo_telefono" parent="menu_carac_reg" action="action_tipo_telefono" sequence="5"/>
+        <menuitem name="Mision" id="menu_mision" parent="menu_carac_reg" action="action_mision" sequence="6"/>
+       
+	<menuitem name="Grupos Familiares" id="menu_rmfeg" parent="menu_miembro_referencial_" sequence="2"/>
+		<menuitem name="Grupo Familiar" id="menu_grupo_familiar" parent="menu_rmfeg" action="action_grupo_familiar" sequence="0"/>
+		<menuitem name="Fundo Organizacion" id="menu_fundo_organizacion_grupo" parent="menu_rmfeg" action="action_fundo_organizacion_grupo" sequence="1"/>
+		<menuitem name="Movimiento" id="menu_movimiento_grupo" parent="menu_rmfeg" action="action_movimiento_grupo" sequence="4"/>
+        <menuitem name="Misiones" id="menu_misiones_grupo" parent="menu_rmfeg" action="action_misiones_grupo" sequence="3"/>
+        <menuitem name="Enfermedad/Discapacidad" id="menu_enf_dis_grupo" parent="menu_rmfeg" action="action_enf_dis_grupo" sequence="6"/>
+        <menuitem name="Telefonos" id="menu_telefono_grupo" parent="menu_rmfeg" action="action_telefono_grupo" sequence="2"/>
+
+    
+    
+    
+    
+        
+</data>
+</openerp>
