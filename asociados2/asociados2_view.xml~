@@ -72,7 +72,8 @@
                 <field name="apellidos"/>
                 <field name="cedula"/>
                 <field name="fecha_nac" on_change="calculo_edad(fecha_nac)"/>
-                <field name="edad" string="Edad" />
+		<label for="edad" string="Edad" />
+   		<field name="edad"/>
                 <field name="genero_id" widget="selection"/>
                 <field name="estado_civil_id" widget="selection"/>
                 <field name="nivel_educativo_id" widget="selection"/>
@@ -83,8 +84,8 @@
                 <field name="fecha_vence"/>
                 
                 <notebook colspan="8">
-                    
-                <page string="Fundo">
+					
+			    <page string="Fundo">
                 <separator string="Fundo" colspan="4"/>
                 <field name="fundo_organizacion_grupo_ids" colspan="4" nolabel="1" select="0"/>
                 </page>
@@ -93,8 +94,8 @@
                 <separator string="Telefono" colspan="4"/>
                 <field name="telefono_grupo_ids" colspan="4" nolabel="1" select="0"/>
                 </page>
-                
-                <page string="Movimiento">	
+					
+				<page string="Movimiento">	
                 <separator string="Movimiento" colspan="4"/>
                 <field name="movimiento_ids" colspan="4" nolabel="1" select="0"/>
                 </page>
@@ -120,11 +121,11 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="">
-                <field name="miembro_referencial_id"/>
+				<field name="miembro_referencial_id"/>
                 <field name="nombre"/>
                 <field name="apellidos"/>
                 <field name="cedula"/>
-                <field name="edad" string="Edad"/>
+                <field name="edad"/>
                 <field name="genero_id"/>
             </tree>
         </field>

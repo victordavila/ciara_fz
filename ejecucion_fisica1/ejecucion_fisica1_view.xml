@@ -335,7 +335,17 @@
         <field name="view_mode">tree,form</field>
     </record>
     
+<record model="ir.ui.view" id="view_familias_atend_form">
+        <field name="name">familias_atend.form</field>
+        <field name="model">familias_atend</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="miembro_referencial_id" select="1"/>
 
+            </form>
+        </field>
+    </record>
         
     <record model="ir.ui.view" id="view_ejecucion_fisica_form">
         <field name="name">ejecucion_fisica.form</field>
@@ -343,29 +353,22 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="ejecucion_fisica">
-                <field name="fundo_id" select="1"/>
+                <field name="fundo_id" select="1"  />
                 <field name="organizacion_id" select="2" domain="[('fundo_id','=',[fundo_id])]"/>
                 <field name="acciones_especificas_id" select="0" widget="selection"/>
                 <field name="fecha_planificacion" select="0"/>
                 <field name="fecha_ejecucion" select="0"/>
-                <field name="fecha_actual" select="0"/>
                 <field name="nombre_objetivo" select="0"/>
                 <field name="objetivo" select="0"/>
                 
                 <notebook colspan="5">
-					 <page string="Personas Atendidas">
-                <separator string="Personas Atendidas" colspan="4"/>
-                <field name="numero_familia" select="0"/>
-                <field name="numero_personas" select="0"/>
-                <separator string="Persona Referencial" colspan="2"/>
-                <newline/>
-                <field name="persona_referencial" select="0"/>
-                <field name="cedula_per_ref" select="0"/>
-                <field name="telefono_per_ref" select="0"/>
-                <field name="correo_per_ref" select="0"/>
-                <field name="personas_atendidas_ids" colspan="4" nolabel="1" select="0"/>
-					</page>
-                     
+                    
+                      <page string="Familias Atendidas">
+                <separator string="Familias Atendidas" colspan="4"/>
+                <field name="familias_atendidas_ids" colspan="4" nolabel="1" select="0" invisible="1"  />
+                <field name="personas_atendidas_ids" colspan="4" nolabel="1" select="0" domain="[('miembro_referencial_id','in',familias_atendidas_ids[0][2])]"/>
+                
+                </page>
                      <page string="Tecnicas dinamicas">
                 <separator string="Tecnicas dinamicas" colspan="4"/>
                 <field name="tecnicas_dinamicas_ids" colspan="4" nolabel="1" select="0"/>
@@ -391,7 +394,18 @@
                 <field name="tecnicos_ids" colspan="4" nolabel="1" select="0"/>
                 </page>
                 
-					
+                <page string="Personas Atendidas">
+                        <separator string="Personas Atendidas" colspan="4"/>
+                <field name="numero_familia" select="0"/>
+                <field name="numero_personas" select="0"/>
+                <separator string="Persona Referencial" colspan="2"/>
+                <newline/>
+                <field name="persona_referencial" select="0"/>
+                <field name="cedula_per_ref" select="0"/>
+                <field name="telefono_per_ref" select="0"/>
+                <field name="correo_per_ref" select="0"/>
+                <field name="personas_atendida_ids" colspan="4" nolabel="1" select="0"/>
+                    </page>
                 </notebook>
                 
                   
@@ -424,7 +438,7 @@
         <field name="name">Ejecucion fisica</field>
         <field name="res_model">ejecucion_fisica</field>
         <field name="view_type">form</field>
-        <field name="view_mode">form,tree</field>
+        <field name="view_mode">tree,form</field>
     </record>
     
     

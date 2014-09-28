@@ -42,7 +42,7 @@ class usuario(osv.osv):
         'sector': fields.char('Sector', size=200,required=False, help='sector'),
         'calle': fields.char('Calle/Avenida', size=200,required=False, help='calle'),
         'telefono': fields.char('Número de Telefono', size=20,required=False, help='apartamento'),
-        'fundo_id': fields.many2one('fundo', 'Fundo Zamorano', required=False, help='Fundo Zamorano'),
+        'fundo_ids': fields.many2many('fundo', 'fundos_usuarios', 'fundo_id', 'usuario_id', 'Fundos Zamoranos', help='ayuda'),
         'casa/apto': fields.char('Casa/Apto', size=200,required=False, help='casa o partamento'),
         'tipo_id': fields.many2one('tipo_usuario', 'Tipo de Usuario', required=True,help='Tipo de Usuario'),
     }
